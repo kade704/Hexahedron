@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"matrix4",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"matrix4",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Scripts/Math.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

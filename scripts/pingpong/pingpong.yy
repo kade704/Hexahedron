@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"pingpong",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"pingpong",
+  "parent":{
+    "name":"Math",
+    "path":"folders/Scripts/Math.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

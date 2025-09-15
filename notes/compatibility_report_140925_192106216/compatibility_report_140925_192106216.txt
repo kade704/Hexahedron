@@ -1,0 +1,220 @@
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\shader_set_uniform_float\shader_set_uniform_float.gml
+Converted description /// @description shader_set_uniform_float(shader, name, value)/// @param shader
+/// @param  name
+/// @param  value
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\shader_set_uniform_vec3\shader_set_uniform_vec3.gml
+Converted description /// @description shader_set_uniform_vec3(shader, name, x, y, z)/// @param shader
+/// @param  name
+/// @param  x
+/// @param  y
+/// @param  z
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\shader_set_uniform_vec4\shader_set_uniform_vec4.gml
+Converted description /// @description shader_set_uniform_vec4(shader, name, r, g, b, a)/// @param shader
+/// @param  name
+/// @param  r
+/// @param  g
+/// @param  b
+/// @param  a
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\normalize\normalize.gml
+Converted description /// @description normalize(vx, vy, vz)/// @param vx
+/// @param  vy
+/// @param  vz
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\cross\cross.gml
+Converted description /// @description cross(x1, y1, z1, x2, y2, z2)/// @param x1
+/// @param  y1
+/// @param  z1
+/// @param  x2
+/// @param  y2
+/// @param  z2
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\dot\dot.gml
+Converted description /// @description dot(x1, y1, z1, x2, y2, z2)/// @param x1
+/// @param  y1
+/// @param  z1
+/// @param  x2
+/// @param  y2
+/// @param  z2
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\rotate_axis\rotate_axis.gml
+Converted description /// @description rotate_axis(vx, vy, vz, ax, ay, az, angle)/// @param vx
+/// @param  vy
+/// @param  vz
+/// @param  ax
+/// @param  ay
+/// @param  az
+/// @param  angle
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\pingpong\pingpong.gml
+Converted description /// @description pingpong(t, length)/// @param t
+/// @param  length
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_add\song_add.gml
+Converted description /// @description song_add(index, song, artist, name, bpm, path, startTime, highlightTime)/// @param index
+/// @param  song
+/// @param  artist
+/// @param  name
+/// @param  bpm
+/// @param  path
+/// @param  startTime
+/// @param  highlightTime
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_object\song_get_object.gml
+Converted description /// @description song_get_object(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_artist\song_get_artist.gml
+Converted description /// @description song_get_artist(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_name\song_get_name.gml
+Converted description /// @description song_get_name(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_bpm\song_get_bpm.gml
+Converted description /// @description song_get_bpm(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_path\song_get_path.gml
+Converted description /// @description song_get_path(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_startTime\song_get_startTime.gml
+Converted description /// @description song_get_startTime(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\song_get_highlightTime\song_get_highlightTime.gml
+Converted description /// @description song_get_highlightTime(index)/// @param index
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\draw_model\draw_model.gml
+Converted description /// @description draw_model(px, py, pz, fx, fy, fz, rx, ry, rz, ux, uy, uz, model, texture, size, alpha)/// @param px
+/// @param  py
+/// @param  pz
+/// @param  fx
+/// @param  fy
+/// @param  fz
+/// @param  rx
+/// @param  ry
+/// @param  rz
+/// @param  ux
+/// @param  uy
+/// @param  uz
+/// @param  model
+/// @param  texture
+/// @param  size
+/// @param  alpha
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\string_split\string_split.gml
+Converted description /// @description string_split(string, letter)/// @param string
+/// @param  letter
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\log\log.gml
+Converted description /// @description log(string)/// @param string
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\error\error.gml
+Converted description /// @description error(string)/// @param string
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\instance_create_3d\instance_create_3d.gml
+Converted description /// @description instance_create_3d(px, py, pz, fx, fy, fz, rx, ry, rz, ux, uy, uz, object)/// @param px
+/// @param  py
+/// @param  pz
+/// @param  fx
+/// @param  fy
+/// @param  fz
+/// @param  rx
+/// @param  ry
+/// @param  rz
+/// @param  ux
+/// @param  uy
+/// @param  uz
+/// @param  object
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\instance_position_3d\instance_position_3d.gml
+Converted description /// @description instance_position_3d(x, y, z, object)/// @param x
+/// @param  y
+/// @param  z
+/// @param  object
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\scripts\tile_exist\tile_exist.gml
+Converted description /// @description tile_exist(tiles, tile)/// @param tiles
+/// @param  tile
+
+GameMaker Studio 1 font texture has been backed up at C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\fonts\ft_Square\ft_Square.gms1.png
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_LobbySystem\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_LobbySystem\Step_0.gml
+Converted description /// @description 큐브 이동
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_LobbyMap\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Logo\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Logo\Draw_0.gml
+Converted description /// @description 로고 그리기
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_MainSystem\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_MainSystem\Step_0.gml
+Converted description /// @description  타일 인덱스 증가
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_MainMap\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Tile\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Tile\Draw_0.gml
+Converted description /// @description 타일 그리기
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Cube\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Cube\Step_0.gml
+Converted description /// @description 로비로 이동
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Cube\Draw_0.gml
+Converted description /// @description 큐브 그리기
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Camera\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Camera\Step_0.gml
+Converted description /// @description  위치 업데이트
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Camera\Draw_0.gml
+Converted description /// @description 카메라 배치
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_Jukebox\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_HUD\Create_0.gml
+Converted description /// @description 변수 초기화
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_HUD\Step_0.gml
+Converted description /// @description  포스트 프로세싱 업데이트
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_HUD\Draw_74.gml
+Converted description /// @description 포스트 프로세싱
+
+Converting GML script: C:\Users\ParityBit\Downloads\3D_Rhythm\3D_Rhythm.gmx\mvc\objects\obj_HUD\Draw_64.gml
+Converted description /// @description  노래 제목 표시
+
+Resource name collision 'Main' already exists, renamed to 'Main_rooms'
+Missing audiogroup for sound: 'snd_pn35a' - setting to default audio group
+Missing audiogroup for sound: 'snd_earofthepig' - setting to default audio group
+Missing audiogroup for sound: 'snd_hihat' - setting to default audio group
+Missing audiogroup for sound: 'snd_tick1' - setting to default audio group
+Missing audiogroup for sound: 'snd_tick2' - setting to default audio group
+Game speed set to 60
+Added compatibility script 'd3d\d3d_set_culling.gml'
+Added compatibility script 'd3d\d3d_set_hidden.gml'
+Added compatibility script 'd3d\d3d_set_perspective.gml'
+Added compatibility script 'd3d\d3d_set_projection_ext.gml'
+Added compatibility script 'd3d\d3d_set_zwriteenable.gml'
+Added compatibility script 'd3d\d3d_start.gml'
+Added compatibility script 'instance\instance_create.gml'
+Added compatibility script 'object\object_get_depth.gml'
+Added compatibility script 'd3d\__init_d3d.gml'
+Added compatibility script '__init_global.gml'
+Added compatibility script '__global_object_depths.gml'
