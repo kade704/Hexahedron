@@ -1,20 +1,36 @@
 /// @description 변수 초기화
 
+PERFECT_WINDOW_MS = 40;
+GOOD_WINDOW_MS = 80;
+BAD_WINDOW_MS = 120;
+
+PERFECT_SCORE = 200;
+GOOD_SCORE = 130;
+BAD_SCORE = 60;
+
 TileIndex = 0;
 CubeIndex = 0;
+TargetNoteIndex = 0;
 
 CubeAngle = 0;
 CubeRotateSpeed = 0;
 
 SongStartTime = 0;
+NoteStartTime = 0;
 IsTileOpening = false;
 TileOpenTime = 0;
 IsGamePlaying = false;
-GameStartTime = 0;
+IsGameFinished = false;
 
-IsHitted = true;
-IsInMissJudgement = false;
-JudgementRate = 120;
+Score = 0;
+
+HitOffsets = [];
+HitOffsetAlphas = [];
+
+PerfectCount = 0;
+GoodCount = 0;
+BadCount = 0;
+MissCount = 0;
 
 for(var i = 0; i < 4; i++)
 {
@@ -112,11 +128,14 @@ TileAlpha[0] = 1;
 
 ///카메라 초기화
 
-obj_Camera.Position = vector3_zero();
+obj_Camera.Position = vector3_create(5, 5, 0);
+obj_Camera.TargetPosition = vector3_create(5, 5, 0);
 obj_Camera.Rotation = quaternion_identity();
+obj_Camera.TargetPosition = vector3_create(5, 5, 0);
 
 obj_Camera.SmoothSpeed = 0.1;
 obj_Camera.TargetScale = 50;
+obj_Camera.Scale = 50;
 
 ///큐브 초기화
 
@@ -125,7 +144,10 @@ obj_Cube.Rotation = quaternion_identity();
 
 ///HUD 초기화
 
-obj_HUD.AssistanceText = "";
+obj_MainUI.Text = "";
+
+obj_PostProcessing.TargetVignetteRadiusMin = 0.2;
+obj_PostProcessing.TargetVignetteRadiusMax = 0.9;
 
 ///노래 시작
 
@@ -136,5 +158,33 @@ audio_play_sound(Song.sound, 0, false);
 
 SongStartTime = current_time;
 
+HitPerfect = function(offset) {
+	obj_MainUI.showText("Perfect!", c_aqua)
+	array_push(HitOffsets, offset);
+	array_push(HitOffsetAlphas, 1);
+	PerfectCount += 1;
+	Score += PERFECT_SCORE;
+}
+
+HitGood = function(offset) {
+	obj_MainUI.showText("Good!", c_green)
+	array_push(HitOffsets, offset);
+	array_push(HitOffsetAlphas, 1);
+	GoodCount += 1;
+	Score += GOOD_SCORE;
+}
+
+HitBad = function(offset) {
+	obj_MainUI.showText("Bad", c_yellow);
+	array_push(HitOffsets, offset);
+	array_push(HitOffsetAlphas, 1);
+	BadCount += 1;
+	Score += BAD_SCORE;
+}
+
+HitMiss = function() {
+	obj_MainUI.showText("Miss.", c_red);
+	MissCount += 1;
+}
 
 

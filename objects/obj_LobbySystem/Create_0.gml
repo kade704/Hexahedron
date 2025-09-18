@@ -26,13 +26,19 @@ CubeRotation = quaternion_identity();
 ///카메라 초기화
 
 obj_Camera.Position = CubePosition;
+obj_Camera.Rotation = quaternion_identity();
+obj_Camera.TargetPosition = CubePosition;
+obj_Camera.TargetRotation = quaternion_identity();
 obj_Camera.SmoothSpeed = 0.02;
+obj_Camera.Scale = 65;
 obj_Camera.TargetScale = 65;
 
 ///HUD 초기화
 
-obj_HUD.Text = "";
-obj_HUD.TargetVignetteRadiusMin = 2.0;
-obj_HUD.TargetVignetteRadiusMax = 2.0;
-obj_HUD.AssistanceText = "";
+obj_LobbyUI.Text = "";
+
+obj_PostProcessing.TargetVignetteRadiusMin = 1.2;
+obj_PostProcessing.TargetVignetteRadiusMax = 1.2;
+
+
 

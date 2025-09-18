@@ -1,12 +1,12 @@
 /// @description 변수 초기화
-Model = load_model("Model/Logo.obj");
+Model = load_model("Model/Control.obj");
 Size = 15;
 Alpha = 1;
 FadeOutSpeed = 0.05;
 
 ///위치 초기화
 
-Position = vector3_create(0, -15, 0)
+Position = vector3_create(-20, 30, 0)
 Rotation = quaternion_identity()
-Scale = vector3_create(15, 15, 15)
+Scale = vector3_create(25, 25, 25)
 

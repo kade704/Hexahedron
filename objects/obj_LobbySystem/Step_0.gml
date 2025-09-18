@@ -1,12 +1,12 @@
 /// @description 큐브 이동
 
-if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
+if(CubeAngle == 0 && !IsSongStarted)
 {
     var dir = point_direction(window_get_width() / 2, window_get_height() / 2, mouse_x, mouse_y);    
     
 	var cellChanged = false;
 	
-    if(0 <= dir && dir < 90) // +X
+    if(keyboard_check(vk_up)) // +X
     {
 		if (CubeCellX < obj_LobbyMap.MAP_SIZE_X - 1 && obj_LobbyMap.SongMap[CubeCellX + 1][CubeCellY] != -2)
 		{
@@ -16,7 +16,7 @@ if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
 			cellChanged = true;
 		}
     }
-    else if(90 <= dir && dir < 180) // -Y
+    else if(keyboard_check(vk_left)) // -Y
     {
 		if (CubeCellY > 0 && obj_LobbyMap.SongMap[CubeCellX][CubeCellY - 1] != -2)
 		{
@@ -26,7 +26,7 @@ if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
 			cellChanged = true;
 		}
     }
-    else if(180 <= dir && dir < 270) // -X
+    else if(keyboard_check(vk_down)) // -X
     {
 		if (CubeCellX > 0 && obj_LobbyMap.SongMap[CubeCellX - 1][CubeCellY] != -2)
 		{
@@ -36,7 +36,7 @@ if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
 			cellChanged = true;
 		}
     }
-    else if(270 <= dir && dir < 360) // +Y
+    else if(keyboard_check(vk_right)) // +Y
     {
 		if (CubeCellY < obj_LobbyMap.MAP_SIZE_Y - 1 && obj_LobbyMap.SongMap[CubeCellX][CubeCellY + 1] != -2)
 		{
@@ -58,14 +58,16 @@ if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
 			obj_Camera.TargetScale = 50;
 			if (SelectedSongIdx == 999) 
 			{
-				obj_HUD.Text = "under construction..";
-				with(obj_HUD) event_user(0);
+				obj_LobbyUI.Text = "under construction..";
+				with(obj_LobbyUI) event_user(0);
+				with(obj_PostProcessing) event_user(0);
 			}
 			else
 			{
 				var song = obj_Jukebox.Songs[SelectedSongIdx];
-	            obj_HUD.Text = song.artist + " - " + song.name;
-	            with(obj_HUD) event_user(0);
+	            obj_LobbyUI.Text = song.artist + " - " + song.name;
+	            with(obj_LobbyUI) event_user(0);
+				with(obj_PostProcessing) event_user(0);
             
 	            audio_stop_all();
 	            var snd = audio_play_sound(song.sound, 0, false);
@@ -76,7 +78,8 @@ if(CubeAngle == 0 && mouse_check_button(mb_left) && !IsSongStarted)
 		}
 		else 
 		{
-			with(obj_HUD) event_user(1);
+			with(obj_LobbyUI) event_user(1);
+			with(obj_PostProcessing) event_user(1);
             obj_Camera.TargetScale = 65;
             IsSongPlaying = false;
 		}
@@ -90,7 +93,7 @@ if(keyboard_check_pressed(vk_enter))
     if (SelectedSongIdx != -1 && SelectedSongIdx != 999) 
 	{
 		obj_Jukebox.Selected = SelectedSongIdx;
-		room_goto(Main)
+		room_goto(room_Main)
 	}
 }
 

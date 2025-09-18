@@ -1,1 +1,1 @@
-room_goto(Lobby)
+room_goto(room_Lobby)

@@ -1,0 +1,1 @@
+TextSize = lerp(TextSize, TEXT_SIZE, TEXT_SCALE_SMOOTH);
