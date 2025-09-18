@@ -65,6 +65,7 @@
     {"id":{"name":"obj_MainMap","path":"objects/obj_MainMap/obj_MainMap.yy",},},
     {"id":{"name":"obj_MainSystem","path":"objects/obj_MainSystem/obj_MainSystem.yy",},},
     {"id":{"name":"obj_MainUI","path":"objects/obj_MainUI/obj_MainUI.yy",},},
+    {"id":{"name":"obj_Manager","path":"objects/obj_Manager/obj_Manager.yy",},},
     {"id":{"name":"obj_PostProcessing","path":"objects/obj_PostProcessing/obj_PostProcessing.yy",},},
     {"id":{"name":"obj_TileBase","path":"objects/obj_TileBase/obj_TileBase.yy",},},
     {"id":{"name":"obj_TileFast","path":"objects/obj_TileFast/obj_TileFast.yy",},},
