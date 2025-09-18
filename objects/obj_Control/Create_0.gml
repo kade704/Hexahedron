@@ -1,5 +1,4 @@
 /// @description 변수 초기화
-Model = load_model("Model/Control.obj");
 Size = 15;
 Alpha = 1;
 FadeOutSpeed = 0.05;

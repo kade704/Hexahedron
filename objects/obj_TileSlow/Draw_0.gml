@@ -2,6 +2,6 @@
 
 if (Alpha > 0) {
 	var world = calc_world_matrix(Position, Rotation, Scale);
-	draw_model(world, Model, Texture, Alpha);
+	draw_model(world, obj_AssetManager.TileSlowModel, obj_AssetManager.TileSlowTexture, Alpha);
 }
 

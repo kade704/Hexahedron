@@ -1,8 +1,5 @@
 /// @description 변수 초기화
 
-Model = load_model("Model/TileFast.obj");
-Texture = sprite_get_texture(spr_TileFast, 0);
-
 Alpha = 1;
 
 ///위치 초기화
