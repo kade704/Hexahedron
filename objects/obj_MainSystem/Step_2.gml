@@ -3,7 +3,7 @@ CubeAngle += CubeRotateSpeed;
 CubeAngle = min(CubeAngle, 0);
 var angleRot = quaternion_from_angle_axis(vector3_y(), CubeAngle);
 
-if(CubeIndex < DataLength - 1)
+if(CubeIndex < DataLength)
 {
 	obj_Cube.Position = Positions[CubeIndex];
 	obj_Cube.Rotation = quaternion_multiply(Rotations[CubeIndex], angleRot);
@@ -11,7 +11,7 @@ if(CubeIndex < DataLength - 1)
 
 
 //  카메라 이동
-if(CubeIndex < DataLength - 1)
+if(CubeIndex < DataLength)
 {
 	var camRot = Rotations[CubeIndex];
 	var camPos = vector3_add(Positions[CubeIndex], vector3_multiply_scalar(quaternion_vector3_forward(camRot), 5));

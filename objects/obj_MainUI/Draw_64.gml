@@ -63,3 +63,13 @@ for (var i = 0; i < array_length(obj_MainSystem.HitOffsets); i++)
 	draw_set_alpha(alpha);
 	draw_rectangle(halfWidth + offset - 2, window_get_height() - 30, halfWidth + offset + 2, window_get_height(), false);
 }
+
+
+// Draw Skip Intro
+if (!obj_MainSystem.IsGamePlaying && !obj_MainSystem.IsSkipped)
+{
+	draw_set_colour(c_white);
+	draw_set_halign(fa_right);
+	draw_set_valign(fa_top);
+	draw_text_transformed(window_get_width() - 10, 30, "Press Enter to Skip", 1, 1, 0);
+}

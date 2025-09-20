@@ -25,10 +25,7 @@ GoodCount = 0;
 BadCount = 0;
 MissCount = 0;
 
-for(var i = 0; i < 4; i++)
-{
-    IsTicked[i] = false;
-}
+IsTicked = array_create(4, false);
 
 /// 파일에서 데이터 불러오기
 
@@ -44,6 +41,7 @@ IsTileOpening = false;
 TileOpenOffset = OneBeatRate * 16;
 IsGamePlaying = false;
 IsGameFinished = false;
+IsSkipped = false;
 
 /// 데이터를 기반으로 위치, 포워드, 라이트, 업 벡터 생성하기
 

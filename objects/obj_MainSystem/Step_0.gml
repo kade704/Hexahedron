@@ -9,7 +9,6 @@ if(IsTileOpening)
     }
 }
 
-
 if(IsGamePlaying)
 {
     if(Timeline[CubeIndex - 1] < CurrentTime && CubeIndex < DataLength)
@@ -85,6 +84,7 @@ for(var i = 0; i < 4; i++)
         else audio_play_sound(snd_tick2, 0, false);
         
         obj_MainUI.showText(string(3 - i), c_white);
+		IsSkipped = true;
     }
 }
 
