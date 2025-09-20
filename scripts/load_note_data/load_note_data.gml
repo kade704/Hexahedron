@@ -1,28 +1,27 @@
 function load_note_data(path) {
+	if(!file_exists(path))
+	{
+		error("Song File does not exist. : " + path);
+		return noone;
+	}
+	
+	var csv_data = load_csv(path)
+	var rows = ds_grid_height(csv_data);
+	
 	var data;
 	data[0] = { rotation: 0, beat: 1, changeSpeed: 1 };
 
-	if(file_exists(path))
+	for(var i = 0; i < rows; i++)
 	{
-	    var file = file_text_open_read(path);    
-
-	    for(var i = 1; !file_text_eof(file); i++)
-	    {
-	        var rotation = file_text_read_real(file);
-	        var beat = file_text_read_real(file);
-	        var changeSpeed = file_text_read_real(file);
-	        file_text_readln(file);
+	    var rotation = real(csv_data[#0, i]);
+	    var beat = real(csv_data[#1, i]);
+	    var changeSpeed = real(csv_data[#2, i]);
 			
-			data[i] =  { rotation: rotation, beat: beat, changeSpeed: changeSpeed };
-	    }
-	    file_text_close(file);
-    
-	    log("File Successfully Loaded : " + path);
+		data[i + 1] =  { rotation: rotation, beat: beat, changeSpeed: changeSpeed };
 	}
-	else 
-	{
-	    error("File does not exist. : " + path);
-	}
-	
+
+	show_debug_message(data);
+
+	log("Song Successfully Loaded : " + path);
 	return data;
 }

@@ -12,7 +12,7 @@ Songs = [
 		artist: "Virtual Riot", 
 		name: "PN35A", 
 		bpm: 200, 
-		note_path: "Song/pn35a.txt", 
+		note_path: "Song/pn35a.csv", 
 		start_time: 21300, 
 		highlight_time: 22 
 	},
@@ -21,7 +21,7 @@ Songs = [
 		artist: "Gill Chang", 
 		name: "Ear of the Pig", 
 		bpm: 200, 
-		note_path: "Song/earofthepig.txt", 
+		note_path: "Song/earofthepig.csv", 
 		start_time: 9300, 
 		highlight_time: 20
 	}
