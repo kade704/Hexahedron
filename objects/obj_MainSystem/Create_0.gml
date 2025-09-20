@@ -15,13 +15,6 @@ TargetNoteIndex = 0;
 CubeAngle = 0;
 CubeRotateSpeed = 0;
 
-SongStartTime = 0;
-NoteStartTime = 0;
-IsTileOpening = false;
-TileOpenTime = 0;
-IsGamePlaying = false;
-IsGameFinished = false;
-
 Score = 0;
 
 HitOffsets = [];
@@ -44,86 +37,92 @@ Song = obj_Jukebox.Songs[obj_Jukebox.Selected];
 NoteData = load_note_data(Song.note_path);
 DataLength = array_length(NoteData);
 
+OneBeatRate = (1 / (Song.bpm / 60)) * 1000;
+
+CurrentTime = 0;
+IsTileOpening = false;
+TileOpenOffset = OneBeatRate * 16;
+IsGamePlaying = false;
+IsGameFinished = false;
+
 /// 데이터를 기반으로 위치, 포워드, 라이트, 업 벡터 생성하기
 
-Positions[0] = vector3_zero();
-Rotations[0] = quaternion_identity();
+Positions = array_create(DataLength + 1, vector3_zero());
+Rotations = array_create(DataLength + 1, quaternion_identity());
 
-for(var i = 1; i < DataLength; i++)
+for(var i = 0; i < DataLength; i++)
 {
 	
     if(NoteData[i].rotation == -1) //좌회전 진행
     {   
         var angle = (90 * NoteData[i].beat) - 90;
 
-		var forward = quaternion_vector3_forward(Rotations[i - 1]);
+		var forward = quaternion_vector3_forward(Rotations[i]);
 		forward = vector3_multiply_scalar(forward, 5);
 		
-		var right = quaternion_vector3_right(Rotations[i - 1]);
+		var right = quaternion_vector3_right(Rotations[i]);
 		right = vector3_multiply_scalar(right, -5);
 	
 		var offset = vector3_add(forward, right);
-		Positions[i] = vector3_add(Positions[i - 1], offset);
+		Positions[i + 1] = vector3_add(Positions[i], offset);
 		
 		var rotationAxis =  quaternion_from_angle_axis(vector3_z(), -90);
 		var rotationAngle = quaternion_from_angle_axis(vector3_y(), angle);
 		var rotation = quaternion_multiply(rotationAxis, rotationAngle);
-		rotation = quaternion_multiply(Rotations[i - 1], rotation);
-		Rotations[i] = rotation;
+		rotation = quaternion_multiply(Rotations[i], rotation);
+		Rotations[i + 1] = rotation;
     }
     else if(NoteData[i].rotation == 0) //직진 진행 
     {   
         var angle = (90 * NoteData[i].beat) - 90;
 
-		var forward = quaternion_vector3_forward(Rotations[i - 1]);
+		var forward = quaternion_vector3_forward(Rotations[i]);
 		forward = vector3_multiply_scalar(forward, 10);
 	
-		Positions[i] = vector3_add(Positions[i - 1], forward);
+		Positions[i + 1] = vector3_add(Positions[i], forward);
 		
 		var rotationAngle = quaternion_from_angle_axis(vector3_y(), angle);
-		var rotation = quaternion_multiply(Rotations[i - 1], rotationAngle);
-		Rotations[i] = rotation;
+		var rotation = quaternion_multiply(Rotations[i], rotationAngle);
+		Rotations[i + 1] = rotation;
     
     }
     else if(NoteData[i].rotation == 1) //우회전 진행
     {
         var angle = (90 * NoteData[i].beat) - 90;
 
-		var forward = quaternion_vector3_forward(Rotations[i - 1]);
+		var forward = quaternion_vector3_forward(Rotations[i]);
 		forward = vector3_multiply_scalar(forward, 5);
 		
-		var right = quaternion_vector3_right(Rotations[i - 1]);
+		var right = quaternion_vector3_right(Rotations[i]);
 		right = vector3_multiply_scalar(right, 5);
 	
 		var offset = vector3_add(forward, right);
-		Positions[i] = vector3_add(Positions[i - 1], offset);
+		Positions[i + 1] = vector3_add(Positions[i], offset);
 		
 		var rotationAxis =  quaternion_from_angle_axis(vector3_z(), 90);
 		var rotationAngle = quaternion_from_angle_axis(vector3_y(), angle);
 		var rotation = quaternion_multiply(rotationAxis, rotationAngle);
-		rotation = quaternion_multiply(Rotations[i - 1], rotation);
-		Rotations[i] = rotation;
+		rotation = quaternion_multiply(Rotations[i], rotation);
+		Rotations[i + 1] = rotation;
     }
 }
 
 /// 데이터를 기반으로 노래 타임라인 생성하기
 
-OneBeatRate = (1 / (Song.bpm / 60)) * 1000;
 
-var currentTime = 0;
 
-Timeline[0] = 0;
-for(var i = 1; i < DataLength; i++)
+var currentTime = Song.start_time;
+for(var i = 0; i < DataLength; i++)
 {
     currentTime += (OneBeatRate * NoteData[i].beat * NoteData[i].changeSpeed);
     Timeline[i] = currentTime;
 }
 
 /// 타일 모습 배열
-TileVisible = array_create(DataLength, false);
+TileVisible = array_create(DataLength + 1, false);
 TileVisible[0] = true;
 
-TileAlpha = array_create(DataLength, 0);
+TileAlpha = array_create(DataLength + 1, 0);
 TileAlpha[0] = 1;
 
 ///카메라 초기화
@@ -156,7 +155,6 @@ audio_stop_all();
 audio_master_gain(1.0);
 audio_play_sound(Song.sound, 0, false);
 
-SongStartTime = current_time;
 
 HitPerfect = function(offset) {
 	obj_MainUI.showText("Perfect!", c_aqua)

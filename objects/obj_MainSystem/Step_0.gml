@@ -1,63 +1,55 @@
+// Tiles fade in
+
 if(IsTileOpening)
 {
-    if(Timeline[TileIndex] < current_time - TileOpenTime && TileIndex < DataLength - 2)
+    if(Timeline[TileIndex - 1] < CurrentTime + TileOpenOffset && TileIndex < DataLength)
     {
-        TileIndex++;
-        
-        TileVisible[TileIndex] = true;
+		TileVisible[TileIndex] = true;
+        TileIndex += 1;
     }
 }
 
+
 if(IsGamePlaying)
 {
-    if(Timeline[CubeIndex] < current_time - NoteStartTime && CubeIndex < DataLength - 1)
+    if(Timeline[CubeIndex - 1] < CurrentTime && CubeIndex < DataLength)
     {
+        TileVisible[CubeIndex] = false;
 		
-        if(CubeIndex < DataLength - 2)
-        {
-            TileVisible[CubeIndex] = false;
-        }
-        
-        CubeIndex++;
-        
+        CubeAngle = -NoteData[CubeIndex].beat * 90;
+        CubeRotateSpeed = -CubeAngle / (OneBeatRate / (1000 / fps) * NoteData[CubeIndex].beat * NoteData[CubeIndex].changeSpeed);
 		
-        if(CubeIndex < DataLength - 1)
-        {
-            CubeAngle = -NoteData[CubeIndex].beat * 90;
-            CubeRotateSpeed = -CubeAngle / (OneBeatRate / (1000 / fps) * NoteData[CubeIndex].beat * NoteData[CubeIndex].changeSpeed);
-        }
+		CubeIndex += 1;
     }
 }
 
 
 ///노트 판정
 
-var timeFromNoteBegin = current_time - NoteStartTime;
-
 var hit = keyboard_check_pressed(vk_anykey) || mouse_check_button_pressed(mb_any);
-if(hit && IsGamePlaying && TargetNoteIndex < DataLength - 1)
+if(hit && IsGamePlaying && TargetNoteIndex < DataLength)
 {
     var targetNoteTime = Timeline[TargetNoteIndex];
-	var timeDiff = abs(timeFromNoteBegin - targetNoteTime);
+	var timeDiff = abs(CurrentTime - targetNoteTime);
     
     if (timeDiff <= PERFECT_WINDOW_MS) {
-		HitPerfect(timeFromNoteBegin - targetNoteTime);
+		HitPerfect(CurrentTime - targetNoteTime);
 		TargetNoteIndex++;
 	} else if (timeDiff <= GOOD_WINDOW_MS) {
-		HitGood(timeFromNoteBegin - targetNoteTime);
+		HitGood(CurrentTime - targetNoteTime);
 		TargetNoteIndex++;
 	} else if (timeDiff <= BAD_WINDOW_MS) {
-		HitBad(timeFromNoteBegin - targetNoteTime);
+		HitBad(CurrentTime - targetNoteTime);
 		TargetNoteIndex++;
 	} else {
 		HitMiss();
 	}
 }
 
-if (IsGamePlaying && TargetNoteIndex < DataLength - 1)
+if (IsGamePlaying && TargetNoteIndex < DataLength)
 {
 	var targetNoteTime = Timeline[TargetNoteIndex];
-	if (timeFromNoteBegin > targetNoteTime + BAD_WINDOW_MS) 
+	if (CurrentTime > targetNoteTime + BAD_WINDOW_MS) 
 	{
 		HitMiss();
 		TargetNoteIndex++;
@@ -75,12 +67,10 @@ if(hit)
 
 ///타일 공개 시작
 
-var timeFromSongStart = current_time - SongStartTime;
-
-if(!IsTileOpening && Song.start_time - (OneBeatRate * 16) < timeFromSongStart)
+if(!IsTileOpening && Song.start_time - TileOpenOffset < CurrentTime)
 {
     IsTileOpening = true;
-    TileOpenTime = current_time;
+	TileIndex += 1;
 }
 
 
@@ -88,7 +78,7 @@ if(!IsTileOpening && Song.start_time - (OneBeatRate * 16) < timeFromSongStart)
 
 for(var i = 0; i < 4; i++)
 {
-    if(!IsTicked[i] && Song.start_time - (OneBeatRate * (3 - i)) < timeFromSongStart)
+    if(!IsTicked[i] && Song.start_time - (OneBeatRate * (3 - i)) < CurrentTime)
     {
         IsTicked[i] = true;
         if(i == 0) audio_play_sound(snd_tick1, 0, false);
@@ -101,11 +91,15 @@ for(var i = 0; i < 4; i++)
 
 ///게임 시작
 
-if(IsTileOpening && !IsGamePlaying && Song.start_time < timeFromSongStart)
+if(IsTileOpening && !IsGamePlaying && Song.start_time < CurrentTime)
 {
     IsGamePlaying = true;
-    NoteStartTime = current_time;
-	TargetNoteIndex += 1;
+	
+	CubeAngle = -NoteData[CubeIndex].beat * 90;
+    CubeRotateSpeed = -CubeAngle / (OneBeatRate / (1000 / fps) * NoteData[CubeIndex].beat * NoteData[CubeIndex].changeSpeed);
+	CubeIndex += 1;
+	
+	TileVisible[0] = false
 }
 
 ///클리어
@@ -115,3 +109,4 @@ if(!IsGameFinished && CubeIndex == DataLength - 1)
     IsGameFinished = true;
 }
 
+CurrentTime += delta_time / 1000;

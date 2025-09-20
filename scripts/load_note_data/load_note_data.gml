@@ -9,18 +9,14 @@ function load_note_data(path) {
 	var rows = ds_grid_height(csv_data);
 	
 	var data;
-	data[0] = { rotation: 0, beat: 1, changeSpeed: 1 };
-
 	for(var i = 0; i < rows; i++)
 	{
 	    var rotation = real(csv_data[#0, i]);
 	    var beat = real(csv_data[#1, i]);
 	    var changeSpeed = real(csv_data[#2, i]);
 			
-		data[i + 1] =  { rotation: rotation, beat: beat, changeSpeed: changeSpeed };
+		data[i] =  { rotation: rotation, beat: beat, changeSpeed: changeSpeed };
 	}
-
-	show_debug_message(data);
 
 	log("Song Successfully Loaded : " + path);
 	return data;

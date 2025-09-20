@@ -6,7 +6,7 @@ draw_set_alpha(1);
 // Draw Timeline
 draw_set_colour(c_gray);
 var songLengthMs = audio_sound_length(obj_MainSystem.Song.sound) * 1000;
-var percentage = (current_time - obj_MainSystem.SongStartTime) / songLengthMs;
+var percentage = obj_MainSystem.CurrentTime / songLengthMs;
 draw_rectangle(0, 0, window_get_width() * percentage, 10, false);
 
 if (percentage > 1)
